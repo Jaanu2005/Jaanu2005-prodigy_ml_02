@@ -1,0 +1,27 @@
+import numpy as np
+from sklearn.cluster import KMeans
+
+# Sample purchase history data (replace with your actual data)
+purchase_history = np.array([
+    [10, 20, 30],  # Customer 1
+    [15, 25, 35],  # Customer 2
+    [5, 10, 20],   # Customer 3
+    [30, 40, 50],  # Customer 4
+    [20, 30, 40]   # Customer 5
+])
+
+# Define the number of clusters (K)
+k = 3
+
+# Initialize KMeans object
+kmeans = KMeans(n_clusters=k)
+
+# Fit the model to the purchase history data
+kmeans.fit(purchase_history)
+
+# Get the cluster labels for each customer
+cluster_labels = kmeans.labels_
+
+# Print the cluster labels for each customer
+for i, label in enumerate(cluster_labels):
+    print(f"Customer {i+1} is in cluster {label+1}"
